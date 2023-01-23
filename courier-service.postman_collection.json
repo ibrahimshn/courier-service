@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "2d6f7db9-6a65-4de1-8299-396831c57542",
+		"name": "courier-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15992543"
+	},
+	"item": [
+		{
+			"name": "track-couirer #1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courierId\" : 11,\r\n    \"latitude\" : 40.9923159,\r\n    \"longitude\" : 29.1245070,\r\n    \"updateDate\" : \"2023-01-21T17:18:49.000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/courier-api/track-courier",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"courier-api",
+						"track-courier"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "track-courier #2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courierId\" : 11,\r\n    \"latitude\" : 40.9924159,\r\n    \"longitude\" : 29.1245070,\r\n    \"updateDate\" : \"2023-01-21T17:19:49.000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/courier-api/track-courier",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"courier-api",
+						"track-courier"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "track-courier #3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courierId\" : 11,\r\n    \"latitude\" : 40.986007408981806,\r\n    \"longitude\" : 29.116104341868834,\r\n    \"updateDate\" : \"2023-01-21T17:26:48.000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/courier-api/track-courier",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"courier-api",
+						"track-courier"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "total-distance",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/courier-api/total-distance?courierId=11",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"courier-api",
+						"total-distance"
+					],
+					"query": [
+						{
+							"key": "courierId",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
