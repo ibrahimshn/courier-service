@@ -1,11 +1,11 @@
 package com.migros.courierservice.config;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.migros.courierservice.model.entity.Store;
 import com.migros.courierservice.repository.StoreRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+@Slf4j
 @Configuration
 @AllArgsConstructor
 public class StoreLoader implements CommandLineRunner {
@@ -20,7 +21,7 @@ public class StoreLoader implements CommandLineRunner {
     private final StoreRepository storeRepository;
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         ObjectMapper mapper = new ObjectMapper();
 
         TypeReference<List<Store>> typeReference = new TypeReference<>(){};
@@ -28,9 +29,9 @@ public class StoreLoader implements CommandLineRunner {
         try {
             List<Store> stores = mapper.readValue(inputStream, typeReference);
             storeRepository.saveAll(stores);
-            System.out.println("Stores saved!");
+            log.info("Stores saved!");
         } catch (IOException e){
-            System.out.println("Unable to save stores: " + e.getMessage());
+            log.error("Unable to save stores: " + e.getMessage());
         }
     }
 
